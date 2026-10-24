@@ -1,0 +1,2 @@
+comparison_population_n,baseline_model,movement_model,combined_model,baseline_rmse,combined_rmse,rmse_improvement_pct,baseline_mae,combined_mae,mae_improvement_pct,baseline_r2,combined_r2,r2_change
+64,40 yd + vertical,Dagger peak speed + Dagger speed CV,40 yd + vertical + Dagger peak speed + Dagger speed CV,0.8547362042564796,0.8649472418047248,-1.1946419839706763,0.6648447857618055,0.6847854602275919,-2.999297714719622,-0.09568149591040458,-0.13138042067472,-0.03569892476431542

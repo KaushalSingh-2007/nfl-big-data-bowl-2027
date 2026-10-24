@@ -1,0 +1,70 @@
+draft_year,outcome,description,population_n,valid_n,missing_n,missing_pct,mean,median
+2023,recorded_postdraft_reg_plays,Recorded regular-season player-play rows,38,31,7,18.421052631578945,661.2258064516129,687.0
+2023,seasons_observed,Seasons observed,38,31,7,18.421052631578945,2.5483870967741935,3.0
+2023,games_observed,Games observed,38,31,7,18.421052631578945,32.645161290322584,38.0
+2023,routes_observed,Observed routes,38,31,7,18.421052631578945,661.2258064516129,687.0
+2023,targets,Targets,38,31,7,18.421052631578945,122.93548387096774,102.0
+2023,observed_separation_count,Observed separation rows,38,31,7,18.421052631578945,122.93548387096774,102.0
+2023,mean_separation,Mean separation,38,30,8,21.052631578947366,3.8373231476360123,3.550729491866364
+2023,median_separation,Median separation,38,30,8,21.052631578947366,3.3804351359605787,3.150701463222505
+2023,observed_rec_yard_rows,Observed receiving-yard rows,38,31,7,18.421052631578945,79.2258064516129,55.0
+2023,receiving_yards_observed_sum,Observed receiving yards,38,30,8,21.052631578947366,1028.7,622.5
+2023,observed_yac_rows,Observed YAC rows,38,31,7,18.421052631578945,79.2258064516129,55.0
+2023,mean_yac,Mean YAC,38,30,8,21.052631578947366,3.885369670970738,3.553438276719138
+2023,targets_per_route,Targets per observed route,38,31,7,18.421052631578945,0.16026539275145368,0.1497504159733777
+2023,targets_per_observed_season,Targets per observed season,38,31,7,18.421052631578945,43.274193548387096,40.333333333333336
+2023,routes_per_observed_season,Routes per observed season,38,31,7,18.421052631578945,237.35483870967744,235.66666666666666
+2023,plays_per_observed_season,Recorded plays per observed season,38,31,7,18.421052631578945,237.35483870967744,235.66666666666666
+2023,observed_yards_per_observed_target,Observed yards per observed target,38,30,8,21.052631578947366,11.788737052306969,12.253401360544217
+2023,career_offensive_snaps,Career offensive snaps,38,38,0,0.0,916.3684210526316,687.0
+2023,career_games_active,Career games active,38,38,0,0.0,32.71052631578947,39.0
+2023,career_games_started,Career games started,38,38,0,0.0,11.842105263157896,4.5
+2023,ap_all_pro_1st_team,AP All-Pro 1st team,38,38,0,0.0,0.07894736842105263,0.0
+2023,ap_all_pro_2nd_team,AP All-Pro 2nd team,38,38,0,0.0,0.02631578947368421,0.0
+2023,pro_bowl_original_ballot,Pro Bowl original ballot,38,38,0,0.0,0.13157894736842105,0.0
+2024,recorded_postdraft_reg_plays,Recorded regular-season player-play rows,31,28,3,9.67741935483871,363.0,280.0
+2024,seasons_observed,Seasons observed,31,28,3,9.67741935483871,1.6785714285714286,2.0
+2024,games_observed,Games observed,31,28,3,9.67741935483871,18.785714285714285,17.5
+2024,routes_observed,Observed routes,31,28,3,9.67741935483871,363.0,280.0
+2024,targets,Targets,31,28,3,9.67741935483871,69.21428571428571,39.0
+2024,observed_separation_count,Observed separation rows,31,28,3,9.67741935483871,69.21428571428571,39.0
+2024,mean_separation,Mean separation,31,27,4,12.903225806451612,3.3642154942117664,3.4175308465957643
+2024,median_separation,Median separation,31,27,4,12.903225806451612,2.8473944774380437,2.7718950510024998
+2024,observed_rec_yard_rows,Observed receiving-yard rows,31,28,3,9.67741935483871,42.17857142857143,28.5
+2024,receiving_yards_observed_sum,Observed receiving yards,31,27,4,12.903225806451612,546.1851851851852,371.0
+2024,observed_yac_rows,Observed YAC rows,31,28,3,9.67741935483871,42.17857142857143,28.5
+2024,mean_yac,Mean YAC,31,27,4,12.903225806451612,3.8288988618551874,4.2
+2024,targets_per_route,Targets per observed route,31,28,3,9.67741935483871,0.16027362433860456,0.16741317089401347
+2024,targets_per_observed_season,Targets per observed season,31,28,3,9.67741935483871,36.30357142857143,26.25
+2024,routes_per_observed_season,Routes per observed season,31,28,3,9.67741935483871,194.14285714285714,168.5
+2024,plays_per_observed_season,Recorded plays per observed season,31,28,3,9.67741935483871,194.14285714285714,168.5
+2024,observed_yards_per_observed_target,Observed yards per observed target,31,27,4,12.903225806451612,12.761540478905822,12.793103448275861
+2024,career_offensive_snaps,Career offensive snaps,31,31,0,0.0,565.741935483871,367.0
+2024,career_games_active,Career games active,31,31,0,0.0,23.741935483870968,28.0
+2024,career_games_started,Career games started,31,31,0,0.0,7.741935483870968,4.0
+2024,ap_all_pro_1st_team,AP All-Pro 1st team,31,31,0,0.0,0.0,0.0
+2024,ap_all_pro_2nd_team,AP All-Pro 2nd team,31,31,0,0.0,0.0,0.0
+2024,pro_bowl_original_ballot,Pro Bowl original ballot,31,31,0,0.0,0.0,0.0
+2025,recorded_postdraft_reg_plays,Recorded regular-season player-play rows,37,23,14,37.83783783783784,183.7826086956522,186.0
+2025,seasons_observed,Seasons observed,37,23,14,37.83783783783784,1.0,1.0
+2025,games_observed,Games observed,37,23,14,37.83783783783784,12.521739130434783,15.0
+2025,routes_observed,Observed routes,37,23,14,37.83783783783784,183.7826086956522,186.0
+2025,targets,Targets,37,23,14,37.83783783783784,29.73913043478261,27.0
+2025,observed_separation_count,Observed separation rows,37,23,14,37.83783783783784,29.73913043478261,27.0
+2025,mean_separation,Mean separation,37,21,16,43.24324324324324,3.7567802732510707,3.5905982420362266
+2025,median_separation,Median separation,37,21,16,43.24324324324324,3.443188576471237,3.26442956924438
+2025,observed_rec_yard_rows,Observed receiving-yard rows,37,23,14,37.83783783783784,17.17391304347826,11.0
+2025,receiving_yards_observed_sum,Observed receiving yards,37,21,16,43.24324324324324,231.1904761904762,224.0
+2025,observed_yac_rows,Observed YAC rows,37,23,14,37.83783783783784,17.17391304347826,11.0
+2025,mean_yac,Mean YAC,37,21,16,43.24324324324324,3.914548268509143,3.8
+2025,targets_per_route,Targets per observed route,37,23,14,37.83783783783784,0.15287929068096762,0.15846994535519127
+2025,targets_per_observed_season,Targets per observed season,37,23,14,37.83783783783784,29.73913043478261,27.0
+2025,routes_per_observed_season,Routes per observed season,37,23,14,37.83783783783784,183.7826086956522,186.0
+2025,plays_per_observed_season,Recorded plays per observed season,37,23,14,37.83783783783784,183.7826086956522,186.0
+2025,observed_yards_per_observed_target,Observed yards per observed target,37,21,16,43.24324324324324,11.849184574276137,12.193548387096774
+2025,career_offensive_snaps,Career offensive snaps,37,37,0,0.0,200.59459459459458,58.0
+2025,career_games_active,Career games active,37,37,0,0.0,10.18918918918919,17.0
+2025,career_games_started,Career games started,37,37,0,0.0,2.3783783783783785,0.0
+2025,ap_all_pro_1st_team,AP All-Pro 1st team,37,37,0,0.0,0.02702702702702703,0.0
+2025,ap_all_pro_2nd_team,AP All-Pro 2nd team,37,37,0,0.0,0.0,0.0
+2025,pro_bowl_original_ballot,Pro Bowl original ballot,37,37,0,0.0,0.02702702702702703,0.0

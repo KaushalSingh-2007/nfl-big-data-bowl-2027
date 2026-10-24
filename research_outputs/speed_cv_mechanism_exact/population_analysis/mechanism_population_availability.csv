@@ -1,0 +1,17 @@
+feature,locked_population,available,missing,coverage_pct
+speed_cv,64,64,0,100.0
+speed_range,64,64,0,100.0
+early_speed_median,64,64,0,100.0
+late_speed_median,64,64,0,100.0
+late_early_speed_ratio,64,64,0,100.0
+mean_positive_dsdt,64,64,0,100.0
+mean_negative_dsdt,64,64,0,100.0
+max_positive_dsdt,64,64,0,100.0
+max_negative_dsdt,64,64,0,100.0
+mean_abs_dsdt,64,64,0,100.0
+frac_accelerating,64,64,0,100.0
+frac_decelerating,64,64,0,100.0
+frac_stable_speed,64,64,0,100.0
+speed_sign_transitions,64,64,0,100.0
+frac_above_median_speed,64,64,0,100.0
+frac_below_median_speed,64,64,0,100.0

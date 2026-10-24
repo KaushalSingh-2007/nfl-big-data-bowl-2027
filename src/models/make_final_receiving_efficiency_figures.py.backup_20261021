@@ -1,0 +1,281 @@
+﻿from pathlib import Path
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "research_outputs"
+FIG = OUT / "final_figures"
+
+FIG.mkdir(parents=True, exist_ok=True)
+
+RESULTS = OUT / "receiving_efficiency_final_sanity" / "final_locked_model_results.csv"
+PAIRED = OUT / "receiving_efficiency_final_sanity" / "final_locked_paired_differences.csv"
+FOLDS = OUT / "receiving_efficiency_final_sanity" / "final_locked_fold_predictions.csv"
+POP = OUT / "receiving_efficiency_final_sanity" / "locked_population_64.csv"
+
+for p in [RESULTS, PAIRED, FOLDS, POP]:
+    if not p.exists():
+        raise FileNotFoundError(f"Required file not found: {p}")
+
+results = pd.read_csv(RESULTS)
+paired = pd.read_csv(PAIRED)
+folds = pd.read_csv(FOLDS)
+pop = pd.read_csv(POP)
+
+# ------------------------------------------------------------
+# Figure 1 — Model comparison across target-reliability levels
+# ------------------------------------------------------------
+
+required_cols = {"threshold", "model", "rmse", "mae"}
+missing = required_cols - set(results.columns)
+if missing:
+    raise ValueError(f"Missing columns in results file: {sorted(missing)}")
+
+threshold_order = sorted(results["threshold"].unique())
+
+model_order = ["conventional", "movement", "combined"]
+model_labels = {
+    "conventional": "40 yd + Vertical",
+    "movement": "Route Speed CV",
+    "combined": "40 yd + Vertical + Speed CV",
+}
+
+fig, ax = plt.subplots(figsize=(9, 5.5))
+
+x = np.arange(len(threshold_order))
+width = 0.24
+
+for i, model in enumerate(model_order):
+    sub = (
+        results[results["model"] == model]
+        .set_index("threshold")
+        .reindex(threshold_order)
+    )
+
+    ax.bar(
+        x + (i - 1) * width,
+        sub["rmse"],
+        width=width,
+        label=model_labels[model],
+    )
+
+ax.set_xticks(x)
+ax.set_xticklabels(
+    [
+        "All players\n(n=64)",
+        "≥10 targets\n(n=55)",
+        "≥20 targets\n(n=47)",
+    ]
+)
+
+ax.set_ylabel("Repeated-CV RMSE\n(receiving yards per target)")
+ax.set_title(
+    "Route-level speed variability improves receiving-efficiency prediction\n"
+    "most clearly when target exposure is sufficiently observed"
+)
+
+ax.legend(frameon=False)
+ax.grid(axis="y", alpha=0.25)
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+fig.savefig(
+    FIG / "figure_1_model_comparison_rmse.png",
+    dpi=300,
+    bbox_inches="tight",
+)
+plt.close(fig)
+
+# ------------------------------------------------------------
+# Figure 2 — Paired error improvement for ≥20 targets
+# ------------------------------------------------------------
+
+# Use fold-level predictions so every comparison is paired on
+# exactly the same player/fold observations.
+
+fold20 = folds[folds["threshold"] == 20].copy()
+
+if fold20.empty:
+    raise ValueError("No threshold=20 predictions found.")
+
+needed = {"nfl_id", "model", "y_true", "prediction"}
+missing = needed - set(fold20.columns)
+if missing:
+    raise ValueError(f"Missing columns in fold predictions: {sorted(missing)}")
+
+fold20["abs_error"] = (
+    fold20["prediction"] - fold20["y_true"]
+).abs()
+
+pivot = (
+    fold20.pivot_table(
+        index=["nfl_id", "repeat", "fold"],
+        columns="model",
+        values="abs_error",
+        aggfunc="mean",
+    )
+    .dropna(subset=["conventional", "movement"])
+)
+
+pivot["movement_minus_conventional"] = (
+    pivot["movement"] - pivot["conventional"]
+)
+
+# Aggregate the repeated-fold paired errors per player.
+player_diff = (
+    pivot.groupby(level="nfl_id")["movement_minus_conventional"]
+    .mean()
+    .sort_values()
+)
+
+fig, ax = plt.subplots(figsize=(9, 5.5))
+
+ax.hist(
+    player_diff.values,
+    bins=15,
+    edgecolor="black",
+    alpha=0.8,
+)
+
+ax.axvline(0, linestyle="--", linewidth=1.5)
+
+median_diff = player_diff.median()
+mean_diff = player_diff.mean()
+
+ax.axvline(
+    mean_diff,
+    linestyle="-",
+    linewidth=1.5,
+    label=f"Mean = {mean_diff:.2f}",
+)
+
+ax.set_xlabel(
+    "Movement-model absolute error − conventional-model absolute error"
+)
+ax.set_ylabel("Number of players")
+ax.set_title(
+    "Paired prediction-error difference for players with ≥20 targets"
+)
+
+ax.text(
+    0.98,
+    0.95,
+    f"Median = {median_diff:.2f}\n"
+    f"Negative = movement model better",
+    transform=ax.transAxes,
+    ha="right",
+    va="top",
+    bbox=dict(boxstyle="round,pad=0.35", alpha=0.08),
+)
+
+ax.legend(frameon=False)
+ax.grid(axis="y", alpha=0.2)
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+fig.savefig(
+    FIG / "figure_2_paired_error_difference_20_targets.png",
+    dpi=300,
+    bbox_inches="tight",
+)
+plt.close(fig)
+
+# ------------------------------------------------------------
+# Figure 3 — Route speed variability vs receiving efficiency
+# ------------------------------------------------------------
+
+required_pop = {
+    "nfl_id",
+    "speed_cv_DAGGER_ROUTE_LEFT",
+    "receiving_efficiency",
+}
+
+missing = required_pop - set(pop.columns)
+if missing:
+    raise ValueError(
+        f"Missing columns in locked population file: {sorted(missing)}"
+    )
+
+scatter = pop[
+    list(required_pop)
+].dropna().copy()
+
+# The locked population is already ≥20 target reliable.
+# Use a simple linear fit only as a visual guide; this is NOT
+# interpreted as evidence of a linear causal relationship.
+
+xv = scatter["speed_cv_DAGGER_ROUTE_LEFT"].to_numpy()
+yv = scatter["receiving_efficiency"].to_numpy()
+
+coef = np.polyfit(xv, yv, 1)
+xx = np.linspace(xv.min(), xv.max(), 100)
+yy = coef[0] * xx + coef[1]
+
+fig, ax = plt.subplots(figsize=(8.5, 5.5))
+
+ax.scatter(
+    xv,
+    yv,
+    alpha=0.75,
+    s=42,
+)
+
+ax.plot(
+    xx,
+    yy,
+    linestyle="--",
+    linewidth=1.5,
+    label="Linear trend",
+)
+
+corr = pd.Series(xv).corr(pd.Series(yv), method="spearman")
+
+ax.set_xlabel("Dagger-route speed coefficient of variation")
+ax.set_ylabel("Receiving yards per target")
+ax.set_title(
+    "Route-level speed variability and future receiving efficiency\n"
+    "(players with ≥20 observed targets)"
+)
+
+ax.text(
+    0.03,
+    0.95,
+    f"Spearman ρ = {corr:.2f}",
+    transform=ax.transAxes,
+    ha="left",
+    va="top",
+    bbox=dict(boxstyle="round,pad=0.35", alpha=0.08),
+)
+
+ax.legend(frameon=False)
+ax.grid(alpha=0.2)
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+fig.savefig(
+    FIG / "figure_3_speed_cv_vs_receiving_efficiency.png",
+    dpi=300,
+    bbox_inches="tight",
+)
+plt.close(fig)
+
+# ------------------------------------------------------------
+# Summary
+# ------------------------------------------------------------
+
+print("\nFINAL FIGURES CREATED")
+print("=" * 60)
+
+for p in sorted(FIG.glob("*.png")):
+    print(f"{p.name}")
+    print(f"  {p}")
+
+print("\nFigure 2 population:")
+print(f"  Players: {len(player_diff)}")
+
+print("\nFigure 3 population:")
+print(f"  Players: {len(scatter)}")
+print(f"  Spearman rho: {corr:.4f}")
+
+print("\nDone.")

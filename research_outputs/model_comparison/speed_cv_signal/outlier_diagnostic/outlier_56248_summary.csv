@@ -1,0 +1,2 @@
+nfl_id,draft_year,drill_name,n_rows,duration_s,mean_speed,speed_std_population,speed_std_sample,speed_cv_population,speed_cv_sample,min_speed,max_speed,speed_xy_correlation,speed_xy_mae
+56248,2023,DAGGER_ROUTE_LEFT,143,14.2,3.2308391608461537,2.191372447565976,2.1990750106739587,0.6782672669449933,0.6806513420179119,0.263333333,7.88,0.9974506443589115,0.12730640698148046

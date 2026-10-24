@@ -1,0 +1,9 @@
+population,target,minimum_observed_rows,comparison,rmse_difference_mean,rmse_difference_std,mae_difference_mean,r2_difference_mean,folds_rmse_improved,folds_rmse_worse
+mean_separation_min_0,mean_separation,0,B_movement_vs_A_conventional,0.03965035243011838,0.20692538476679487,0.029868510397968128,-0.2516696225278027,28,22
+mean_separation_min_0,mean_separation,0,C_combined_vs_A_conventional,0.0592921659486546,0.19111690209059493,0.042134475349815764,-0.29547283328574175,28,22
+mean_separation_min_10,mean_separation,10,B_movement_vs_A_conventional,-0.009318716064048669,0.04144194686256595,-0.007429057395150258,0.0324139112312398,24,26
+mean_separation_min_10,mean_separation,10,C_combined_vs_A_conventional,0.012816154846752794,0.027004607422280374,0.014192429947693415,-0.054325097473372885,3,47
+mean_separation_min_20,mean_separation,20,B_movement_vs_A_conventional,-0.010500209258677513,0.047307676854724104,-0.01591574915190872,0.038198549256501645,28,22
+mean_separation_min_20,mean_separation,20,C_combined_vs_A_conventional,0.01006154916051523,0.02067782189290914,0.008225776293207858,-0.04366467102021891,16,34
+mean_separation_min_30,mean_separation,30,B_movement_vs_A_conventional,-0.005129696587171013,0.07230351597320185,-0.00022233952151462622,0.0022944773245752947,29,21
+mean_separation_min_30,mean_separation,30,C_combined_vs_A_conventional,0.028233683471392143,0.055378184868631476,0.025443847303038877,-0.15532583405362282,13,37

@@ -1,0 +1,32 @@
+﻿# NFL Big Data Bowl raw data
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Python caches
+.pytest_cache/
+.cache/
+
+# Archives
+*.zip
+*.7z
+*.rar

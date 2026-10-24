@@ -1,0 +1,7 @@
+threshold,model_a,model_b,comparison,n_players,observed_difference,bootstrap_mean,ci_low,ci_high,p_improves
+10,poly_conventional,poly_movement,Polynomial movement vs polynomial conventional,55,-0.09653686764227443,-0.09764410936919689,-0.18918418468188597,-0.010445512051765225,0.9858
+10,linear_movement,poly_movement,Polynomial movement vs linear movement,55,-0.01922962240304882,-0.019549546419718688,-0.0489748744402793,0.0011188561040862406,0.9639
+10,linear_combined,poly_combined,Polynomial combined vs linear combined,55,-0.023885782658625843,-0.024055585695403923,-0.05249910005848735,0.0006126775514938761,0.9719
+20,poly_conventional,poly_movement,Polynomial movement vs polynomial conventional,47,-0.10214599377872213,-0.10183417575817501,-0.256109370770705,0.0397554501860236,0.9138
+20,linear_movement,poly_movement,Polynomial movement vs linear movement,47,-0.01057591794169288,-0.010473496516118968,-0.029247875370215635,0.0064289037276029325,0.8725
+20,linear_combined,poly_combined,Polynomial combined vs linear combined,47,-0.009929199192039162,-0.009644700229856352,-0.030771792643337865,0.010753244379645572,0.819

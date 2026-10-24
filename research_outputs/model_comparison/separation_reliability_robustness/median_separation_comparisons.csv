@@ -1,0 +1,3 @@
+population,target,minimum_observed_rows,comparison,rmse_difference_mean,rmse_difference_std,mae_difference_mean,r2_difference_mean,folds_rmse_improved,folds_rmse_worse
+median_separation,median_separation,0,B_movement_vs_A_conventional,0.027958429037492447,0.17887397285668108,0.021026439387407843,-0.13256218135182926,28,22
+median_separation,median_separation,0,C_combined_vs_A_conventional,0.04457378098620378,0.15474187814125778,0.03265365715115315,-0.16722388853699477,28,22

@@ -1,0 +1,15 @@
+metric,value
+n,64.0
+speed_cv_mean,0.3179652560574704
+speed_cv_median,0.3073425017605578
+speed_cv_std,0.056218851728380266
+speed_cv_min,0.2532255594843994
+speed_cv_max,0.6752953543006276
+speed_cv_pearson_with_40,0.20115890943530587
+speed_cv_spearman_with_40,0.11142318671291293
+speed_cv_pearson_with_vertical,0.11410166908032454
+speed_cv_spearman_with_vertical,0.03629120361692987
+speed_cv_pearson_with_mean_separation,0.16250088412315644
+speed_cv_spearman_with_mean_separation,0.1523809523809524
+speed_only_standardized_ridge_coefficient,0.1600008705212616
+speed_only_training_r2,0.02640028727279775

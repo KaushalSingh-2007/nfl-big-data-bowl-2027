@@ -1,0 +1,3 @@
+comparison,rmse_difference_mean,rmse_difference_std,mae_difference_mean,r2_difference_mean,folds_rmse_improved,folds_rmse_worse
+B_movement_vs_A_conventional,0.03965035243011838,0.20692538476679487,0.029868510397968128,-0.2516696225278027,28,22
+C_combined_vs_A_conventional,0.0592921659486546,0.19111690209059493,0.042134475349815764,-0.29547283328574175,28,22
